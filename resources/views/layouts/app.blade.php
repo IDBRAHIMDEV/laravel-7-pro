@@ -33,7 +33,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <li><a class="p-2 text-dark" href="{{ route('home') }}">Home</a></li>
+                        <li><a class="p-2 text-dark" href="{{ route('contact') }}">Contact</a></li>
+                        <li><a class="p-2 text-dark" href="{{ route('posts.index') }}">Blog Posts</a></li>
+                        <li><a class="p-2 text-dark" href="{{ route('posts.create') }}">Add</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -51,7 +54,7 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->email }} <span class="caret"></span>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -73,7 +76,9 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            <div class="container">
+                @yield('content')
+            </div>
         </main>
     </div>
 </body>

@@ -2,12 +2,16 @@
 
 namespace App;
 
-use App\Category;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    function category() {
-        return $this->belongsTo(Category::class);
+    // protected $table = 'blogposts';
+
+    protected $fillable = ['title', 'content'];
+
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
     }
 }
