@@ -35,8 +35,8 @@
                     <ul class="navbar-nav mr-auto">
                         <li><a class="p-2 text-dark" href="{{ route('home') }}">Home</a></li>
                         <li><a class="p-2 text-dark" href="{{ route('contact') }}">Contact</a></li>
-                        <li><a class="p-2 text-dark" href="{{ route('posts.index') }}">Blog Posts</a></li>
-                        <li><a class="p-2 text-dark" href="{{ route('posts.create') }}">Add</a></li>
+                        <li><a class="p-2 text-dark" href="{{ route('posts.index') }}">Posts</a></li>
+                        <li><a class="p-2 text-dark" href="{{ route('posts.create') }}">Add Post</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

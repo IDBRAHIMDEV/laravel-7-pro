@@ -72,10 +72,12 @@
             @endif
 
             <div class="content">
+                <div class="mb-5">
+                    <em>Mohamed IDBRAHIM</em>
+                </div>
                 <div class="title m-b-md">
                     Bright Coding
                 </div>
-                <em class="my-5">Mohamed IDBRAHIM</em>
                 <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
                     <a href="https://laracasts.com">Laracasts</a>
