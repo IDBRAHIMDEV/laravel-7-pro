@@ -16,6 +16,22 @@ Route::get('/', function() {
 });
 
 Route::get('/contact', 'HomeController@contact')->name('contact');
+
+Route::get('/secret', 'HomeController@secret')
+    ->name('secret')
+    ->middleware('can:secret.page');
+    ;
+
+
+Route::get('/posts/archive', 'PostController@archive');
+Route::patch('/posts/{id}/restore', 'PostController@restore');
+Route::delete('/posts/{id}/forcedelete', 'PostController@forcedelete');
+Route::get('/posts/all', 'PostController@all');
+
+Route::get('/posts/tag/{id}', 'PostTagController@index')->name('posts.tag.index');
+
+
+Route::resource('posts.comments', 'PostCommentController')->only(['store']);
 Route::resource('/posts', 'PostController');
 
 Auth::routes();
