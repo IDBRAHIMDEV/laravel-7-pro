@@ -61,6 +61,8 @@ class PostController extends Controller
         return view('posts.create');
     }
 
+    
+
     public function store(StorePost $request)
     {
 
@@ -75,9 +77,9 @@ class PostController extends Controller
            
             $path = $request->file('picture')->store('posts');
             
-            $image = new Image(['path' =>  $path]);
+            //$image = new Image(['path' =>  $path]);
 
-            $post->image()->save($image);
+            $post->image()->save(Image::make(['path' => $path]));
         }
 
         $request->session()->flash('status', 'Blog post was created!');
@@ -120,12 +122,8 @@ class PostController extends Controller
                     $post->image->save();
                   }
                   else {
-                      $post->image->save(Image::create(['path' => $path]));
+                      $post->image()->save(Image::make(['path' => $path]));
                   }
-            
-            $image = new Image(['path' =>  $path]);
-
-            $post->image()->save($image);
         }
 
         $validatedData = $request->validated();

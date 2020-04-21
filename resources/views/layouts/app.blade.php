@@ -75,6 +75,8 @@
                 </div>
             </div>
         </nav>
+        
+        <x-alert></x-alert>
 
         <main class="py-4">
             <div class="container">
