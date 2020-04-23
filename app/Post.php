@@ -18,7 +18,11 @@ class Post extends Model
 
     public function comments()
     {
-        return $this->hasMany('App\Comment')->dernier();
+        return $this->morphMany('App\Comment', 'commentable')->dernier();
+    }
+
+    public function tags() {
+        return $this->morphToMany('App\Tag', 'taggable')->withTimestamps();
     }
 
     public function image() {
@@ -63,9 +67,4 @@ class Post extends Model
         });
 
      }
-
-     public function tags() {
-         return $this->belongsToMany('App\Tag')->withTimestamps();
-     }
-
 }

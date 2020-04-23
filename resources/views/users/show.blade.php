@@ -12,6 +12,10 @@
         </div>
         <div class="col-md-8">
             <h3>{{ $user->name }}</h3>
+            <x-comment-form :action="route('users.comments.store', ['user' => $user->id])"></x-comment-form>
+            <hr>
+            
+            <x-comment-list :comments="$user->comments"></x-comment-list>
         </div>
     </div>
 
