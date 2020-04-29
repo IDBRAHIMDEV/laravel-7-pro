@@ -11,6 +11,13 @@
 |
 */
 
+Route::get('/mailable', function() {
+   
+    $comment = App\Comment::find(1);
+    
+    return new App\Mail\CommentedPostMarkdown($comment);
+});
+
 Route::get('/', function() {
     return view('welcome');
 });
