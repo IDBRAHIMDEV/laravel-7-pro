@@ -10,12 +10,8 @@
         value="{{ old('content', $post->content ?? null) }}"/>
 </div>
 
-@if($errors->any())
-    <div>
-        <ul>
-            @foreach($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+<div class="form-group">
+    <label for="picture">Picture</label>
+    <input type="file" name="picture" id="picture" class="form-control-file"></div>
+
+<x-errors></x-errors>

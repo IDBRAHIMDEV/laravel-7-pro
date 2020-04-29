@@ -11,12 +11,38 @@
 |
 */
 
+Route::get('/mailable', function() {
+   
+    $comment = App\Comment::find(1);
+    
+    return new App\Mail\CommentedPostMarkdown($comment);
+});
+
 Route::get('/', function() {
     return view('welcome');
 });
 
 Route::get('/contact', 'HomeController@contact')->name('contact');
-Route::resource('/posts', 'PostController');
+
+Route::get('/secret', 'HomeController@secret')
+    ->name('secret')
+    ->middleware('can:secret.page');
+    ;
+
+
+Route::get('/posts/archive', 'PostController@archive');
+Route::patch('/posts/{id}/restore', 'PostController@restore');
+Route::delete('/posts/{id}/forcedelete', 'PostController@forcedelete');
+Route::get('/posts/all', 'PostController@all');
+
+Route::get('/posts/tag/{id}', 'PostTagController@index')->name('posts.tag.index');
+
+
+Route::resource('posts.comments', 'PostCommentController')->only(['store']);
+Route::resource('users.comments', 'UserCommentController')->only(['store']);
+Route::resource('posts', 'PostController');
+
+Route::resource('users', 'UserController')->only(['show', 'edit', 'update']);
 
 Auth::routes();
 
