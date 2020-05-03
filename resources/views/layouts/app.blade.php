@@ -34,10 +34,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li><a class="p-2 text-dark" href="{{ route('home') }}">Home</a></li>
-                        <li><a class="p-2 text-dark" href="{{ route('contact') }}">Contact</a></li>
-                        <li><a class="p-2 text-dark" href="{{ route('posts.index') }}">Posts</a></li>
-                        <li><a class="p-2 text-dark" href="{{ route('posts.create') }}">Add Post</a></li>
+                    <li><a class="p-2 text-dark" href="{{ route('home') }}">{{ __('Home') }}</a></li>
+                    <li><a class="p-2 text-dark" href="{{ route('contact') }}">{{ __('Contact') }}</a></li>
+                    <li><a class="p-2 text-dark" href="{{ route('posts.index') }}">{{ __('Posts') }}</a></li>
+                    <li><a class="p-2 text-dark" href="{{ route('posts.create') }}">{{ __('Add') }}</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -59,6 +59,10 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                                    <a href="{{ route('users.show', ['user' => Auth::user()->id]) }}" class="dropdown-item">Profile</a>
+                                    <a href="{{ route('users.edit', ['user' => Auth::user()->id]) }}" class="dropdown-item">Edit</a>
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
