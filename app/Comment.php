@@ -6,7 +6,6 @@ use App\Scopes\LatestScope;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Facades\Cache;
 
 class Comment extends Model
 {
@@ -36,15 +35,5 @@ class Comment extends Model
     {
         return $query->orderBy(static::UPDATED_AT, 'desc');
     }
-
-
-    public static function boot() {
-        parent::boot();
-
-        static::creating(function(Comment $comment){
-            
-            Cache::forget("post-show-{$comment->commentable->id}");
-        });
-     }
 
 }
